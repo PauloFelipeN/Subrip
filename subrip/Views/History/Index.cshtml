@@ -1,0 +1,49 @@
+﻿@model IEnumerable<subrip.Models.Subtitle>
+@{
+    ViewData["Title"] = "History page";
+}
+
+<div class="col-lg-6">
+    <div class="card">
+
+        <div class="card-header">
+            SubRip Subtitles history
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            Data
+                        </th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FileName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateUpdate)
+                        </td>
+                        <td>
+                            <a asp-action="download" asp-route-id="@item.Id">Dowload</a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+
+
